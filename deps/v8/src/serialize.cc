@@ -2481,10 +2481,10 @@ SerializedCodeData::SerializedCodeData(const List<byte>& payload,
 
 bool SerializedCodeData::IsSane(String* source) const {
   return GetHeaderValue(kVersionHashOffset) == Version::Hash() &&
-         GetHeaderValue(kSourceHashOffset) == SourceHash(source) &&
+         //GetHeaderValue(kSourceHashOffset) == SourceHash(source) &&
          GetHeaderValue(kCpuFeaturesOffset) ==
              static_cast<uint32_t>(CpuFeatures::SupportedFeatures()) &&
-         GetHeaderValue(kFlagHashOffset) == FlagList::Hash() &&
+         //GetHeaderValue(kFlagHashOffset) == FlagList::Hash() &&
          Checksum(Payload()).Check(GetHeaderValue(kChecksum1Offset),
                                    GetHeaderValue(kChecksum2Offset));
 }
